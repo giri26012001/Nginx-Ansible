@@ -1,0 +1,14 @@
+---
+- hosts: webserver
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: install nginx
+      apt:
+        name: nginx
+        state: present
+    - name: start the service
+      service:
+        name: nginx
+        state: started
+      
